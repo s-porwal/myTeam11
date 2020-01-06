@@ -1,0 +1,57 @@
+<div class="jumbotron text-center">
+    <h1 class="display-5">Registration Form</h1>
+</div>
+
+
+<div class="container">
+	<div class="row custom-wrapper">
+		<div class="col-md-12">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+        
+            <label>Name</label>
+            <input type="text" class="form-control" formControlName="name">
+       
+
+
+      
+            <label>Gender</label>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio1"  class="custom-control-input" formControlName="gender" value="male">
+            <label class="custom-control-label" for="customRadio1">Male</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio2"  class="custom-control-input" formControlName="gender" value="female">
+            <label class="custom-control-label" for="customRadio2">Female</label>
+          </div>
+       
+
+           
+        <select class="custom-select" formControlName="state">
+           <option value="">Select State</option>
+            <option *ngFor="let state of states" [value]="state.name">{{ state.name }}</option>
+            
+          </select>
+       
+
+       
+               
+        <input type="date" class="form-control" formControlName="dob"/>
+
+        
+
+        </div>
+
+        
+        <button class="btn btn-danger btn-lg btn-block" type="submit" [disabled]="!form.valid">Register</button>
+
+        <pre>{{ form.value | json }}</pre>
+        <pre>{{ form.status | json }}</pre>
+
+        {{date}}
+
+       
+    </form>
+    </div>
+    </div>
+    </div>
